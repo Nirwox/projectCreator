@@ -1,0 +1,83 @@
+<div class="container mt-20">
+  <mat-card class="cardBlock">
+
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Création d'une nouvelle brique solar</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+        <mat-grid-list cols="2" gutterSize="20px" rowHeight="70px">
+            <mat-grid-tile>
+                <mat-form-field class="full-width"> 
+                    <input matInput placeholder="Code urbanisation projet">
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Nom complet projet">
+                  </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field class="full-width">
+                    <mat-select placeholder="Version Initiale">
+                      <mat-option value="0.1.0">0.1.0</mat-option>
+                      <mat-option value="1.0.0">1.0.0</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-button-toggle-group name="source" aria-label="Sources">
+                <mat-button-toggle value="svn">SVN</mat-button-toggle>
+                <mat-button-toggle value="git">GIT</mat-button-toggle>
+              </mat-button-toggle-group>
+            </mat-grid-tile>
+ 
+          </mat-grid-list>      
+          
+          <mat-grid-list cols="1" rowHeight="70px">
+              <mat-grid-tile>
+                  <mat-form-field class="full-width">
+                      <mat-label>Chef de projet</mat-label>
+                      <mat-select>
+                        <mat-option *ngFor="let utilisateur of listeUserJira" [value]="utilisateur.key">
+                            {{utilisateur.displayName}} - {{utilisateur.key}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                </mat-grid-tile>
+            </mat-grid-list>
+
+            <mat-grid-list cols="2" gutterSize="20px" rowHeight="70px">
+                <mat-grid-tile>
+                    <mat-form-field class="full-width">
+                        <mat-label>Version Java</mat-label>
+                        <mat-select placeholder="Version Initiale">
+                          <mat-option value="0.1.0">0.1.0</mat-option>
+                          <mat-option value="1.0.0">1.0.0</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field class="full-width">
+                            <mat-label>Version Socle</mat-label>
+                            <mat-select placeholder="Version Initiale">
+                              <mat-option value="0.1.0">0.1.0</mat-option>
+                              <mat-option value="1.0.0">1.0.0</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                    </mat-grid-tile>
+              </mat-grid-list>
+
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+      <mat-grid-list cols="1" class="offset-8" rowHeight="40px">
+        <mat-grid-tile>
+            <button mat-flat-button color="primary">Lancer la création</button>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-actions>
+  </mat-card>
+</div>
